@@ -1,4 +1,5 @@
 
+
 class Library:
     def __init__(self):
         self.books = []
@@ -15,6 +16,10 @@ class Library:
     def borrow_book(self, title):
         for book in self.books:
             if book["title"] == title:
+                if not book["available"]:
+                    print(f"{title} is already borrowed.")
+                    return
+
                 book["available"] = False
                 print(f"You borrowed {title}.")
                 return
@@ -45,3 +50,4 @@ library.borrow_book("Python Basics")
 library.borrow_book("Python Basics")
 
 library.show_books()
+print("thanks for using this app")
